@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animated Navbar UI</title>
+
+    <!-- Font Awesome Icons -->
+    <script
+      src="https://kit.fontawesome.com/a81368914c.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      /* ---------- Global ---------- */
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: "Poppins", sans-serif;
+        background-image: linear-gradient(#f1f1f1 1px, transparent 1px),
+          linear-gradient(90deg, #f1f1f1 1px, transparent 1px);
+        background-size: 55px 55px;
+        background-color: #fff;
+      }
+
+      /* ---------- Navbar ---------- */
+      .nav {
+        background: rgba(17, 17, 17, 0.92);
+        backdrop-filter: blur(18px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 20px 45px;
+        border-radius: 60px;
+        position: fixed;
+        top: 40px;
+        z-index: 50;
+      }
+
+      .nav ul {
+        display: flex;
+        gap: 80px;
+        position: relative;
+        padding: 0;
+        margin: 0;
+      }
+
+      .nav ul li {
+        list-style: none;
+        color: #fff;
+        font-size: 27px;
+        cursor: pointer;
+        transition: 0.25s ease;
+        z-index: 2;
+      }
+
+      .nav ul li:hover {
+        transform: scale(1.12);
+        color: #dbdbdb;
+      }
+
+      /* ---------- Active Indicator ---------- */
+      .indicator {
+        width: 60px;
+        height: 60px;
+        background: #3b3b3b;
+        border-radius: 50%;
+        position: absolute;
+        top: -16px;
+        left: 0;
+        transition: transform 0.35s cubic-bezier(0.29, 0.68, 0.57, 1.2);
+        z-index: 1;
+      }
+
+      .nav ul li.active {
+        color: #e0e0e0;
+      }
+
+      /* ---------- Status Badge ---------- */
+      .status {
+        margin-top: 130px;
+        background: white;
+        padding: 13px 28px;
+        border-radius: 40px;
+        font-size: 18px;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid #e8e8e8;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+      }
+
+      .status .dot {
+        width: 14px;
+        height: 14px;
+        background: #00c437;
+        border-radius: 50%;
+      }
+
+      /* ---------- Page Sections ---------- */
+      .pages {
+        margin-top: 70px;
+        text-align: center;
+        font-size: 32px;
+        font-weight: 600;
+        min-height: 300px;
+      }
+
+      section {
+        display: none;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: 0.35s ease;
+      }
+
+      section.show {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ---------- Responsive ---------- */
+      @media (max-width: 600px) {
+        .nav ul {
+          gap: 45px;
+        }
+        .indicator {
+          width: 50px;
+          height: 50px;
+        }
+        .nav ul li {
+          font-size: 22px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ✅ Navbar -->
+    <nav class="nav">
+      <ul>
+        <li class="active"><i class="fa-solid fa-house"></i></li>
+        <li><i class="fa-solid fa-briefcase"></i></li>
+        <li><i class="fa-solid fa-user"></i></li>
+        <li><i class="fa-solid fa-clipboard"></i></li>
+        <div class="indicator"></div>
+      </ul>
+    </nav>
+
+    <!-- ✅ Status Badge -->
+    <div class="status">
+      <span class="dot"></span>
+      Open to Opportunities
+    </div>
+
+    <!-- ✅ Page Content -->
+    <div class="pages">
+      <section class="show">🏠 Home Section</section>
+      <section>💼 Work Section</section>
+      <section>👤 About Section</section>
+      <section>📋 Projects Section</section>
+    </div>
+
+    <!-- ✅ JavaScript -->
+    <script>
+      const listItems = document.querySelectorAll(".nav ul li");
+      const indicator = document.querySelector(".indicator");
+      const pages = document.querySelectorAll("section");
+
+      listItems.forEach((item, index) => {
+        item.addEventListener("click", () => {
+          document.querySelector(".active").classList.remove("active");
+          item.classList.add("active");
+
+          indicator.style.transform = `translateX(${index * 80}px)`;
+
+          pages.forEach((page) => page.classList.remove("show"));
+          pages[index].classList.add("show");
+        });
+      });
+    </script>
+  </body>
+</html>
