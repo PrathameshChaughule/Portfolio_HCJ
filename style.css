@@ -104,7 +104,7 @@
 }
 
 .home1 img{
-    width: 70px;
+    width: 66px;
     border-radius: 50%;
     cursor: pointer;
 }
@@ -130,6 +130,12 @@
     width: fit-content;
     transition: transform 0.4s ease;
     box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.151);
+}
+
+.social1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .icon1{
@@ -193,6 +199,12 @@
     justify-content: space-between;
 }
 
+.top1{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
 .indicator {
   width: 28px;
   height: 28px;
@@ -244,7 +256,7 @@
 }
 
 .name span {
-  font-size: 6rem;
+  font-size: 6.6vw;
   font-weight: 700;
   display: inline-block;
   transition: color 0.3s ease;
@@ -266,6 +278,19 @@
   100% { transform: translateY(-20px); }
 }
 
+.menu{
+    font-size: 3.5vw;
+    border: 1px solid black;
+    border-radius: 50%;
+    padding: 0.4vw 1.3vw;
+    cursor: pointer;
+    display: none;
+    background-color: white;
+}
+
+.menu:hover{
+    animation: imgBounce 0.45s ease-out forwards;
+}
 
 .disc{
     width: 50vw;
@@ -378,4 +403,160 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.social2{
+    display: none;
+}
+
+.mobileMenu{
+    display: none;
+}
+
+
+@media (max-width: 1150px) {
+    .menu{
+        display: block;
+    }
+    
+    .social{
+        display: none;
+    }
+
+    .top img{
+        width: 6.5vw;
+        margin-top: 0.5vw;
+    }
+    .home1{
+        position: relative;
+    }
+    .home{
+        height: fit-content;
+        transition: all 1s;
+    }
+    .indi{
+        margin-top: 9vw;
+        padding: 0.6vw
+    }
+    .disc{
+        width: 82vw;
+    }
+    .top{
+        border: 1px solid black;
+        align-items: center;
+        border-radius: 5vw;
+        flex-direction: column;
+        position: fixed;
+        width: 90%;
+        padding: 0px 5px;
+        background-color: black;
+        text-align: center;
+        z-index: 999;
+        color: white;
+        transform-origin: top center;   
+        transition: all 0.5s;
+    }
+    .hide1{
+        transform: translate(0%, -180%);
+    }
+    .nav{
+        display: none;
+    }
+    .menu{
+        color: black;
+    }
+    .nav-item1{
+        font-size: 3.5vw;
+    }
+    .social2{
+        background-color: white;
+        display: flex;
+        padding: 0.3vw 1vw;
+        border-radius: 50px;
+        margin: 1.2vw;
+        margin-bottom: 2vw;
+    }
+    .mobileMenu{
+        display: block;
+        overflow: hidden;
+    }
+
+    .indi span{
+        font-size: 2vw;
+    }
+
+    .social-item{
+        padding: 1vw 1vw;
+    }
+
+    @keyframes bounceMenu {
+        0%   { transform: scaleY(1); }
+        50%  { transform: scaleY(1.05); } 
+        70% { transform: scaleY(1); }
+        80% { transform: scaleY(1.04); }
+        90% { transform: scaleY(1.03); }
+        100% { transform: scaleY(1); }
+    }
+    @keyframes bounceMenu1 {
+         0%   { transform: scaleY(1); }
+        45%  { transform: scaleY(0.75); }
+        65%  { transform: scaleY(0.9); }
+        85%  { transform: scaleY(0.75); }
+        100% { transform: scaleY(1); }
+    }
+}
+
+@media (max-width: 850px) {
+    .name span{
+        font-size: 8vw;
+    }
+    .space{
+        width: 1vw;
+    }
+    .disc{
+        font-size: 3vw;
+    }
+    .connect-btn{
+        font-size: 1.8vw;
+        margin-top: 2vw;
+        padding: 1vw 2vw;
+    }
+    .work-btn{
+        margin-top: 4vw;
+        font-size: 2.8vw;
+    }
+    .time-pill{
+        font-size: 1.9vw;
+    }
+    .item4{
+        font-size: 2.5vw;
+    }
+    @keyframes bounce {
+        0%   { transform: translateY(0px); }
+        20%  { transform: translateY(-4vw); }
+        35%  { transform: translateY(0px); } 
+        45%  { transform: translateY(0px); }
+        65%  { transform: translateY(0px); }  
+        85%  { transform: translateY(0px); }  
+        95%  { transform: translateY(0px); }      
+        100% { transform: translateY(0px); }     
+    }
+    .menu:hover{
+        animation: none;
+    }
+}
+
+@media (max-width: 490px) {
+    .name span {
+        font-size: 7vw;
+    }
+    .indi span {
+        font-size: 2.5vw;
+    }
+    .indi{
+        padding: 0.4vw
+    }
+    .social-item{
+        padding: 1vw 2.3vw;
+    }
 }
